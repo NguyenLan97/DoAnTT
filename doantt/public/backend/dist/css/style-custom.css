@@ -1,0 +1,11 @@
+.show-image.file {
+    height: 330px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    /* margin-right: 10px; */
+}
+
+.show-image.file img {
+    height: 100%;
+    padding-right: 10px;
+}
