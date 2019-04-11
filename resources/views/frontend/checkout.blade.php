@@ -63,12 +63,12 @@
 				</div>
 				<div class="clearfix"> </div>
 				<div class="checkout-left-basket animated wow slideInLeft" data-wow-delay=".5s">
-					<h4><a href="#">Đặt hàng</a><span class="total-price"></h4>
+					<h4><a href="/member/login">Đặt hàng</a><span class="total-price"></h4>
 				</div>
 				<div class="clearfix"> </div>
-				<div class="checkout-left-basket animated wow slideInLeft" data-wow-delay=".5s">
-					<h4><a href="#">Cập nhật</a><span class="total-price"></h4>
-				</div>
+				{{--<div class="checkout-left-basket animated wow slideInLeft" data-wow-delay=".5s">--}}
+					{{--<h4><a href="#">Cập nhật</a><span class="total-price"></h4>--}}
+				{{--</div>--}}
 				<div class="clearfix"> </div>
 				<div class="checkout-left-basket animated wow slideInLeft" data-wow-delay=".5s">
 					<h4><a href="{{asset('cart/delete/all')}}">Xóa giỏ hàng</a><span class="total-price"></h4>
@@ -78,13 +78,15 @@
 			@else
 			<h4>Giỏ hàng rỗng! </h4>
 			@endif
+
 			<div class="clearfix"> </div>
+			@if(Auth::user())
 			<div class="col-md-9">
 				<h2 style="color:red">XÁC NHẬN MUA HÀNG</h2></br>
 				<form method="post">
 					<div class="form-group">
 						<label for="email">Địa chỉ Email:</label>
-						<input required type="email" class="form-control" id="email" name="email">
+						<input required type="email" class="form-control" id="email" name="email" value="">
 					</div>
 					<div class="form-group">
 						<label for="name">Họ và tên:</label>
@@ -104,6 +106,7 @@
 					{{csrf_field()}}
 				</form>
 			</div>
+			@endif
 			<div class="checkout-right-basket animated wow slideInRight" data-wow-delay=".5s">
 					<a href="{{asset('detail/')}}"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Trở về trang chi tiết sản phẩm</a>
 				</div>

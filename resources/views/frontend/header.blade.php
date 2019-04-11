@@ -6,8 +6,20 @@
 					<ul>
 						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">nguyenlan220897@gmail.com</a></li>
 						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>0968954840</li>
-						<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="login.php">Đăng nhập</a></li>
-						<li><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a href="register.php">Đăng kí</a></li>
+
+						@php
+							//dd()
+						@endphp
+						@if(!Auth::user())
+						<li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="{{ url('member/login') }}">Đăng nhập</a></li>
+						<li><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a href="{{ url('member/register') }}">Đăng kí</a></li>
+						@elseif(Auth::user()->is_admin == 0)
+						<li><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a href="{{ url('member/') }}">Xin chào {{ Auth::user()->full_name }}</a></li>
+
+						<li><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a href="{{ url('member/logout') }}">Đăng xuất</a></li>
+						@endif
+
+
 					</ul>
 				</div>
 				<div class="header-grid-right animated wow slideInRight" data-wow-delay=".5s">

@@ -87,7 +87,7 @@
                                 <div>
                                     <input required type="file" name="img" id="imgInp">
                                 </div>
-                                <img id='img-upload' width="300px" src="{{asset('../storage/app/images/'.$product->prod_img)}}">
+                                <img id='img-upload' width="300px" src="{{asset('images/'.$product->prod_img)}}">
                             </div>
                             <div>
                             <div class="form-group col-sm-4">
@@ -145,7 +145,7 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    
+
 </body>
 @endsection
 

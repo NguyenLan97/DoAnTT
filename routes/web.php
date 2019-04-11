@@ -11,6 +11,10 @@
 |
 */
 
+use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', 'FrontendController@getHome');
 
 Route::get('detail/{id}/{slug}.html', 'FrontendController@getDetail');
@@ -35,17 +39,35 @@ Route::get('mail','FrontendController@getMail');
 
 Route::get('complete','CartController@getComplete');
 
+Route::get('member', 'MemberController@member');
+
+Route::get('member/login', 'MemberController@login');
+Route::post('member/login', 'Auth\LoginController@login')->name('customerLogin');
+
+Route::get('member/register', 'MemberController@register');
+Route::post('member/register', 'Auth\RegisterController@register')->name('customerRegister');
+
+Route::get('member/reset-pass', 'ResetPasswordController@showResetForm');
+Route::post('member/reset-pass', 'ResetPasswordController@reset');
+
+Route::get('member/logout', 'Auth\LoginController@logout');
+
+Route::group(['prefix' => 'member', 'middleware' => 'auth'], function (Router $group) {
+
+});
+
 Route::group(['namespace'=>'Admin'],function(){
 
 
 	Route::group(['prefix'=>'admin'],function(){
-			Route::group(['prefix'=>'login'],function(){
-			Route::get('/','LoginController@getLogin');
-			Route::post('/','LoginController@postLogin');
-		});
+        Route::get('/','HomeController@getHome');
+	    
+        Route::group(['prefix'=>'login'],function(){
+            Route::get('/','LoginController@getLogin');
+            Route::post('/','LoginController@postLogin');
+        });
+        
 		Route::get('logout','HomeController@getLogout');
-
-		Route::get('home','HomeController@getHome');
 
 		Route::group(['prefix'=>'category'],function(){
 			Route::get('/','CategoryController@getCate');
