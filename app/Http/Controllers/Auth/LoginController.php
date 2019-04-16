@@ -46,7 +46,7 @@ class LoginController extends Controller
      */
     public function doLogin(Request $request)
     {
-        $this->redirectTo = $request->get('callback') ? $request->get('callback') : '/';
+        $this->redirectTo = $request->has('callback') ? $request->get('callback') : '/';
     
         return $this->login($request);
     }

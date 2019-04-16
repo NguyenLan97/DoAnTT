@@ -18,8 +18,8 @@ class MemberController extends Controller
         if(Auth::check()){
             return view('member.mypage');
         }
-
-        return view('frontend.login');
+        $callback = $request->get('callback') ? $request->get('callback') : '/';
+        return view('frontend.login', compact('callback'));
     }
     
     /**
