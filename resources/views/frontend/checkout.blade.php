@@ -62,10 +62,12 @@
 					<h4>Tổng tền: <span class="total-price"></span>{{$total}} đ</h4>
 				</div>
 				<div class="clearfix"> </div>
+				@if(!(Auth::user() && Auth::user()->isUser()))
 				<div class="checkout-left-basket animated wow slideInLeft" data-wow-delay=".5s">
-					<h4><a href="/member/login">Đặt hàng</a><span class="total-price"></h4>
+					<h4><a href="/member/login?callback={{ route('showCart', [], false) }}">Đặt hàng</a><span class="total-price"></span></h4>
 				</div>
 				<div class="clearfix"> </div>
+				@endif
 				{{--<div class="checkout-left-basket animated wow slideInLeft" data-wow-delay=".5s">--}}
 					{{--<h4><a href="#">Cập nhật</a><span class="total-price"></h4>--}}
 				{{--</div>--}}
@@ -80,25 +82,25 @@
 			@endif
 
 			<div class="clearfix"> </div>
-			@if(Auth::user())
+			@if((Cart::count()>=1) && (Auth::user() && Auth::user()->isUser()))
 			<div class="col-md-9">
 				<h2 style="color:red">XÁC NHẬN MUA HÀNG</h2></br>
-				<form method="post">
+				<form method="post" action="{{ route('buyComplete') }}">
 					<div class="form-group">
 						<label for="email">Địa chỉ Email:</label>
-						<input required type="email" class="form-control" id="email" name="email" value="">
+						<input type="email" class="form-control" id="email" name="email" value="{{ Auth::user()->email }}" disabled="disabled">
 					</div>
 					<div class="form-group">
 						<label for="name">Họ và tên:</label>
-						<input required type="text" class="form-control" id="name" name="name">
+						<input required type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->full_name }}">
 					</div>
 					<div class="form-group">
 						<label for="phone">Số điện thoại:</label>
-						<input required type="number" class="form-control" id="phone" name="phone">
+						<input required type="text" class="form-control" id="phone" name="phone" value="{{ Auth::user()->phone }}">
 					</div>
 					<div class="form-group">
 						<label for="add">Địa chỉ:</label>
-						<input required type="text" class="form-control" id="add" name="add">
+						<input required type="text" class="form-control" id="add" name="add" value="{{ Auth::user()->address }}">
 					</div>
 					<div class="form-group text-center">
 						<button type="submit" class="btn btn-default"><span style="color:#0000ff;">Thực hiện đơn hàng</span></button>
@@ -108,7 +110,7 @@
 			</div>
 			@endif
 			<div class="checkout-right-basket animated wow slideInRight" data-wow-delay=".5s">
-					<a href="{{asset('detail/')}}"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Trở về trang chi tiết sản phẩm</a>
+					<a href="{{ url('/') }}"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Trở về trang chi tiết sản phẩm</a>
 				</div>
 		</div>
 	</div>

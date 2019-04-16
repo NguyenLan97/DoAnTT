@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 
 class LoginController extends Controller
@@ -28,14 +29,34 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
-
+    
     /**
-     * Create a new controller instance.
+     * LoginController constructor.
      *
-     * @return void
+     * @param Request $request
      */
-    public function __construct()
+    public function __construct(Request $request)
     {
         $this->middleware('guest')->except('logout');
     }
+    
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
+     */
+    public function doLogin(Request $request)
+    {
+        $this->redirectTo = $request->get('callback') ? $request->get('callback') : '/';
+    
+        return $this->login($request);
+    }
+    
+    
+    protected function authenticated(Request $request, $user)
+    {
+        if($user->isAdmin()){
+            $this->redirectTo = '/admin';
+        }
+    }
+    
 }

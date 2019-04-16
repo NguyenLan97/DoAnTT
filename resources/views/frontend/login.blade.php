@@ -65,6 +65,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="forgot">
 						<a href="#">Quên mật khẩu?</a>
 					</div>
+                    <input type="hidden" name="callback" value="{{ $callback }}">
 					<input type="submit" name="dangnhap" value="Đăng nhập">
 				</form>
 			</div>

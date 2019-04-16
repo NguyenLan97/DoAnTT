@@ -25,10 +25,11 @@ Route::get('search','FrontendController@getSearch');
 
 Route::group(['prefix'=>'cart'],function(){
 	Route::get('add/{id}','CartController@getAddCart');
-	Route::get('show','CartController@getShowCart');
+	Route::get('show','CartController@getShowCart')->name('showCart');
 	Route::get('delete/{id}','CartController@getDeleteCart');
 	Route::get('update','CartController@getUpdateCart');
 	Route::post('show','CartController@postComplete');
+	Route::post('buy','CartController@buyComplete')->name('buyComplete');
 });
 
 Route::get('about','FrontendController@getAbout');
@@ -42,7 +43,7 @@ Route::get('complete','CartController@getComplete');
 Route::get('member', 'MemberController@member');
 
 Route::get('member/login', 'MemberController@login');
-Route::post('member/login', 'Auth\LoginController@login')->name('customerLogin');
+Route::post('member/login', 'Auth\LoginController@doLogin')->name('customerLogin');
 
 Route::get('member/register', 'MemberController@register');
 Route::post('member/register', 'Auth\RegisterController@register')->name('customerRegister');
@@ -61,6 +62,7 @@ Route::group(['namespace'=>'Admin'],function(){
 
 	Route::group(['prefix'=>'admin'],function(){
         Route::get('/','HomeController@getHome');
+        Route::get('/home','HomeController@getHome');
 	    
         Route::group(['prefix'=>'login'],function(){
             Route::get('/','LoginController@getLogin');
