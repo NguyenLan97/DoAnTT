@@ -94,7 +94,7 @@
 						<a href="{{asset('cart/show')}}">
 							<h3> <div class="total">
 								&lpar; <span>{{Cart::count()}}</span> sản phẩm&rpar;</div>
-								<img src="frontend/images/bag.png" alt="" />
+								<img src="images/bag.png" alt="" />
 							</h3>
 						</a>
 						<div class="clearfix"> </div>

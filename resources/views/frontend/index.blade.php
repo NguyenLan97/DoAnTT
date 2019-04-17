@@ -53,7 +53,7 @@
 				<div class="banner-bottom-grid-left animated wow slideInLeft" data-wow-delay=".5s">
 					<div class="grid">
 						<figure class="effect-julia">
-							<img src="frontend/images/bnoi1.jpg" alt=" " class="img-responsive" />
+							<img src="images/bnoi1.jpg" alt=" " class="img-responsive" />
 							<figcaption>
 								<h3>SẢN PHẨM<span>MỚI</span></h3>
 								<div>
@@ -67,7 +67,7 @@
 				<div class="banner-bottom-grid-left1 animated wow slideInUp" data-wow-delay=".5s">
 					<div class="banner-bottom-grid-left-grid left1-grid grid-left-grid1">
 						<div class="banner-bottom-grid-left-grid1">
-							<img src="frontend/images/mxst4.jpg" alt=" " class="img-responsive" />
+							<img src="images/mxst4.jpg" alt=" " class="img-responsive" />
 						</div>
 						<div class="banner-bottom-grid-left1-position">
 							<div class="banner-bottom-grid-left1-pos1">
@@ -79,7 +79,7 @@
 				<div class="banner-bottom-grid-right animated wow slideInRight" data-wow-delay=".5s">
 					<div class="banner-bottom-grid-left-grid grid-left-grid1">
 						<div class="banner-bottom-grid-left-grid1">
-							<img src="frontend/images/bnoi2.jpg" alt=" " class="img-responsive" />
+							<img src="images/bnoi2.jpg" alt=" " class="img-responsive" />
 						</div>
 						<div class="grid-left-grid1-pos">
 							<b><p style="color:black">SẢN PHẨM <span>BÁN CHẠY NHẤT</span></p></b>
@@ -95,7 +95,7 @@
 				<div class="banner-bottom-grid-left animated wow slideInLeft" data-wow-delay=".5s">
 					<div class="grid">
 						<figure class="effect-julia">
-							<img src="frontend/images/noidoi1.jpg" alt=" " class="img-responsive" />
+							<img src="images/noidoi1.jpg" alt=" " class="img-responsive" />
 							<figcaption>
 								<h3>SALE 20%</h3>
 							</figcaption>
@@ -105,7 +105,7 @@
 				<div class="banner-bottom-grid-left1 animated wow slideInUp" data-wow-delay=".5s">
 					<div class="banner-bottom-grid-left-grid left1-grid grid-left-grid1">
 						<div class="banner-bottom-grid-left-grid1">
-							<img src="frontend/images/noidoi2.jpg" alt=" " class="img-responsive" />
+							<img src="images/noidoi2.jpg" alt=" " class="img-responsive" />
 						</div>
 						<div class="banner-bottom-grid-left1-position">
 							<div class="banner-bottom-grid-left1-pos1">
@@ -117,7 +117,7 @@
 				<div class="banner-bottom-grid-right animated wow slideInRight" data-wow-delay=".5s">
 					<div class="banner-bottom-grid-left-grid grid-left-grid1">
 						<div class="banner-bottom-grid-left-grid1">
-							<img src="frontend/images/noidoi3.jpg" alt=" " class="img-responsive" />
+							<img src="images/noidoi3.jpg" alt=" " class="img-responsive" />
 						</div>
 						<div class="grid-left-grid1-pos">
 							<b><p style="color:black">SALE 40%</p></b>

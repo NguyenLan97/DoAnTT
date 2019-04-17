@@ -59,7 +59,6 @@ Route::group(['prefix' => 'member', 'middleware' => 'auth'], function (Router $g
 
 Route::group(['namespace'=>'Admin'],function(){
 
-
 	Route::group(['prefix'=>'admin'],function(){
         Route::get('/','HomeController@getHome');
         Route::get('/home','HomeController@getHome');
@@ -103,6 +102,13 @@ Route::group(['namespace'=>'Admin'],function(){
 			Route::get('add','NewsController@getAddNews');
 
 			Route::get('edit','NewsController@getEditNews');
+		});
+
+		Route::group(['prefix'=>'bill'],function(){
+
+			Route::get('/','BillController@getBill');
+			Route::post('/','BillController@postBill');
+
 		});
 	});
 

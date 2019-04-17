@@ -60,7 +60,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="donhang.php"><i class="fa fa-file fa-fw"></i> Quản lý đơn hàng</a>
+                            <a href="{{asset('admin/bill')}}"><i class="fa fa-file fa-fw"></i> Quản lý đơn hàng</a>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
