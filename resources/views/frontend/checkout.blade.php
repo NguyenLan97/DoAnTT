@@ -83,6 +83,11 @@
 
 			<div class="clearfix"> </div>
 			@if((Cart::count()>=1) && (Auth::user() && Auth::user()->isUser()))
+			@if($errors->any())
+				@foreach($errors->all() as $error)
+				{{ $error }}
+				@endforeach
+			@endif
 			<div class="col-md-9">
 				<h2 style="color:red">XÁC NHẬN MUA HÀNG</h2></br>
 				<form method="post" action="{{ route('buyComplete') }}">
@@ -93,6 +98,7 @@
 					<div class="form-group">
 						<label for="name">Họ và tên:</label>
 						<input required type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->full_name }}">
+						
 					</div>
 					<div class="form-group">
 						<label for="phone">Số điện thoại:</label>

@@ -20,11 +20,12 @@
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th style="text-align: center;">STT</th>
+                                        <th style="text-align: center;">ID</th>
                                         <th style="text-align: center;">Tên khách hàng</th>
-                                        <th style="text-align: center;">Email</th>
+                                
                                         <th style="text-align: center;">Địa chỉ</th>
                                         <th style="text-align: center;">Số điện thoại</th>
+                                        <th style="text-align: center;">Tổng tiền</th>
                                         <th style="text-align: center;">Ngày tạo</th>
                                         <th style="text-align: center;">Chi tiết</th>
                                         <th style="text-align: center;">Trạng thái</th>
@@ -33,15 +34,16 @@
                                 </thead>
 
                                 <tbody>
+                                	@foreach($billlist as $bill)
                                 	<tr>
-                                		<td style="text-align: center;">1</td>
-                                		<td style="text-align: center;">A</td>
-                                		<td style="text-align: center;">d</td>
-                                		<td style="text-align: center;">435</td>
-                                		<td style="text-align: center;">5</td>
-                                		<td style="text-align: center;">5</td>
+                                		<td style="text-align: center;">{{$bill->bill_id}}</td>
+                                		<td style="text-align: center;">{{$bill->bill_fullname}}</td>
+                                		<td style="text-align: center;">{{$bill->bill_address}}</td>
+                                		<td style="text-align: center;">{{$bill->bill_phone}}</td>
+                                		<td style="text-align: center;">{{$bill->bill_price}}</td>
+                                		<td style="text-align: center;">{{$bill->created_at}}</td>
                                 		<td style="text-align: center;">
-                                			<input id="btnSubmit"  type="submit" class="btn btn-lg btn-success btn-block" value="Chi tết">
+                                			<input id="btnSubmit"  type="submit" class="btn btn-lg btn-success btn-block" value="Chi tiết" style=" width: 82px; height: 42px;padding-left: 10px;">
                                 		</td>
                                 		<td style="text-align: center;">
 			                                <select required name="prod_cate" class="form-control" id="sel1" onclick="checkRole('chk', this)">
@@ -55,6 +57,7 @@
                                 		</td>
                                 		<td style="text-align: center;"></td>
                                 	</tr>
+                                	@endforeach
                                 </tbody>
                             </table>
                             <!-- /.table-responsive -->

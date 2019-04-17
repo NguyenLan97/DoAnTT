@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
+use Auth;
 use Cart;
 use App\Models\Product;
+use App\Models\Bill;
+use App\Models\BillDetails;
 use Mail;
+
 class CartController extends Controller
 {
     //
@@ -47,6 +52,57 @@ class CartController extends Controller
     		$message->subject('Xác nhận hóa đơn mua hàng Kitchen Art');
     	});
     	return redirect('complete');
+    }
+
+
+    /**
+     * Validate thong tin cua nguoi nhan
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validatorCartInfo(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:11',
+            'add' => 'required|string|max:255',
+        ]);
+    }
+
+    public function buyComplete(Request $request){
+
+    	//validate input
+		$this->validatorCartInfo($request->all())->validate();
+
+    	$name = $request->get('name', '');
+    	$phone = $request->get('phone', '');
+    	$address = $request->get('add', '');
+
+    	$bill = new Bill();
+    	$bill->bill_userid = Auth::user()->id;
+    	$bill->bill_fullname = $name;
+    	$bill->bill_phone = $phone;
+    	$bill->bill_address = $address;
+    	$bill->bill_price = Cart::total();
+    	$bill->bill_status = 0;
+    	$bill->save();
+
+    	$billId = $bill->bill_id;
+
+    	$cartItems = Cart::content();
+
+    	foreach ($cartItems as $cartItem) {
+    		$billDetail = new BillDetails();
+    		$billDetail->bill_id = $billId;
+    		$billDetail->prod_id = (int) $cartItem->id;
+    		$billDetail->prod_price = $cartItem->price;
+    		$billDetail->prod_quantity = $cartItem->qty;
+
+    		$billDetail->save();
+
+    	}
+
+    	return redirect('complete');;
     }
 
     public function getComplete(){

@@ -4,11 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class BillDetails extends Model
+class News extends Model
 {
     //
-    protected $table = 'bill_details';
+    protected $table = 'news';
+    protected $primaryKey = 'news_id';
     protected $guarded = [];
-
-    public $timestamps = false;
 }

@@ -28,18 +28,13 @@
 								<div class="col-lg-5 post-left">
 									<div class="feature-img relative">
 										<div class="overlay overlay-bg"></div>
-										<img class="img-fluid" src="frontend/images/ncd2.jpg" alt="">
+										<img class="img-fluid" src="images/ncd2.jpg" alt="">
 									</div>
 								</div>
 								<div class="col-lg-7 post-right">
 									<a href="image-post.html">
 										<h4>Nồi cơm điện SUPOR</h4>
 									</a>
-									<!-- <ul class="meta">
-										<li><a href="#"><span class="lnr lnr-user"></span>Mark wiens</a></li>
-										<li><a href="#"><span class="lnr lnr-calendar-full"></span>03 April, 2018</a></li>
-										<li><a href="#"><span class="lnr lnr-bubble"></span>06 Comments</a></li>
-									</ul> -->
 									<p class="excert">
 										Nồi cơm điện bán chạy nhất tháng 2 vừa qua. Với thiết kế đẹp và đơn giản, dễ dàng sử dụng.
 									</p>

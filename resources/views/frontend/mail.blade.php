@@ -28,7 +28,7 @@
 				</div>
 				<div class="col-md-4 mail-grid-right animated wow slideInRight" data-wow-delay=".5s">
 					<div class="mail-grid-right1">
-						<img src="frontend/images/l.jpg" alt=" " class="img-responsive" />
+						<img src="images/l.jpg" alt=" " class="img-responsive" />
 						<h4>Nguyen Lan <span>Người quản lý</span></h4>
 						<ul class="phone-mail">
 							<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>DD: 0968954840</li>

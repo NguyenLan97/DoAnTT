@@ -104,10 +104,18 @@ Route::group(['namespace'=>'Admin'],function(){
 			Route::get('edit','NewsController@getEditNews');
 		});
 
+		Route::group(['prefix'=>'user'],function(){
+			Route::get('/','UserController@getUser');
+
+			Route::get('add','UserController@getAddUser');
+
+			Route::get('edit','UserController@getEditUser');
+		});
+
 		Route::group(['prefix'=>'bill'],function(){
 
 			Route::get('/','BillController@getBill');
-			Route::post('/','BillController@postBill');
+			
 
 		});
 	});

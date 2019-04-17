@@ -1,12 +1,12 @@
 @extends('backend.master')
-@section('title','Thêm thành viên')
+@section('title','Sửa thành viên')
 @section('content')
 
     <div id="wrapper">
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="text-center">THÊM MỚI THÀNH VIÊN</h2>
+                    <h2 class="text-center">SỬA THÀNH VIÊN</h2>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -83,7 +83,7 @@
                                 <textarea class="form-control" id="addContentNews" name="description" placeholder="Nhập mô tả ..."></textarea>
                             </div>
                             <div class="form-group text-center col-sm-12">
-                                <button type="submit" name="add" id="btnAdd" class="btn btn-success">Thêm</button>
+                                <button type="submit" name="add" id="btnAdd" class="btn btn-success">Sửa</button>
                             </div>
                         </form>
                         <!-- /.panel-body -->

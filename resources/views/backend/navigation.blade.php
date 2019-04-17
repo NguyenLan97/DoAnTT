@@ -67,10 +67,10 @@
                             <a href="#"><i class="fa fa-user fa-fw"></i> Quản lý Thành viên<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="them_thanhvien.php"><i class="fa fa-plus"></i> Thêm mới</a>
+                                    <a href="{{asset('admin/user/add')}}"><i class="fa fa-plus"></i> Thêm mới</a>
                                 </li>
                                 <li>
-                                    <a href="danhsach_thanhvien.php"><i class="fa fa-bars"></i> Danh sách</a>
+                                    <a href="{{asset('admin/user')}}"><i class="fa fa-bars"></i> Danh sách</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
