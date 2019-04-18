@@ -79,6 +79,7 @@ class CartController extends Controller
     	$phone = $request->get('phone', '');
     	$address = $request->get('add', '');
     
+    	// Mở transaction
         DB::beginTransaction();
         
         try{
@@ -104,19 +105,21 @@ class CartController extends Controller
     
                 $billDetail->save();
             }
-            
-            Cart::destroy();
-            
+    
+            // Nếu thành công thì commit tất cả vào db và kết thúc transaction
             DB::commit();
+    
+            //xóa giỏ hàng sau khi tất cả okie
+            Cart::destroy();
             
             return redirect('complete');
         
         } catch (\Exception $ex){
     
+            // Nếu không thành công thì rollback db và kết thúc transaction
             DB::rollBack();
             return redirect('notComplete');
         }
-
     	
     }
 
