@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 use Validator;
 use Auth;
 use Cart;
@@ -77,32 +78,49 @@ class CartController extends Controller
     	$name = $request->get('name', '');
     	$phone = $request->get('phone', '');
     	$address = $request->get('add', '');
-
-    	$bill = new Bill();
-    	$bill->bill_userid = Auth::user()->id;
-    	$bill->bill_fullname = $name;
-    	$bill->bill_phone = $phone;
-    	$bill->bill_address = $address;
-    	$bill->bill_price = Cart::total();
-    	$bill->bill_status = 0;
-    	$bill->save();
-
-    	$billId = $bill->bill_id;
-
-    	$cartItems = Cart::content();
-
-    	foreach ($cartItems as $cartItem) {
-    		$billDetail = new BillDetails();
-    		$billDetail->bill_id = $billId;
-    		$billDetail->prod_id = (int) $cartItem->id;
-    		$billDetail->prod_price = $cartItem->price;
-    		$billDetail->prod_quantity = $cartItem->qty;
-
-    		$billDetail->save();
-
-    	}
-
-    	return redirect('complete');;
+    
+    	// Mở transaction
+        DB::beginTransaction();
+        
+        try{
+    	    $bill = new Bill();
+            $bill->bill_userid = Auth::user()->id;
+            $bill->bill_fullname = $name;
+            $bill->bill_phone = $phone;
+            $bill->bill_address = $address;
+            $bill->bill_price = Cart::total(0, '', '');
+            $bill->bill_status = 0;
+            $bill->save();
+    
+            $billId = $bill->bill_id;
+    
+            $cartItems = Cart::content();
+    
+            foreach ($cartItems as $cartItem) {
+                $billDetail = new BillDetails();
+                $billDetail->bill_id = $billId;
+                $billDetail->prod_id = (int) $cartItem->id;
+                $billDetail->prod_price = $cartItem->price;
+                $billDetail->prod_quantity = $cartItem->qty;
+    
+                $billDetail->save();
+            }
+    
+            // Nếu thành công thì commit tất cả vào db và kết thúc transaction
+            DB::commit();
+    
+            //xóa giỏ hàng sau khi tất cả okie
+            Cart::destroy();
+            
+            return redirect('complete');
+        
+        } catch (\Exception $ex){
+    
+            // Nếu không thành công thì rollback db và kết thúc transaction
+            DB::rollBack();
+            return redirect('notComplete');
+        }
+    	
     }
 
     public function getComplete(){
