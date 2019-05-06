@@ -39,19 +39,19 @@
                                 <label for="#addTitleNews">Tên tiêu đề<span class="star-custom">*</span>
                                 <span id="mess_title" style="color: red"></span>
                                 </label>
-                                <input required type="text" name="cate_name" class="form-control" id="addTitleNews" placeholder="Nhập tên danh mục ...">
+                                <input required type="text" name="news_title" class="form-control" id="addTitleNews" placeholder="Nhập tên tiêu đề ...">
                             </div>
                             <div class="form-group">
                                 <label for="#addContentNews">Nội dung <span class="star-custom">*</span>
                                 </label>
-                                <textarea class="form-control" id="addContentNews" name="content" placeholder="Nhập nội dung ..."></textarea>
+                                <textarea required class="form-control" id="addContentNews" name="news_content" placeholder="Nhập nội dung ..."></textarea>
                             </div>
 							<div class="form-group">
                                 <label>Ảnh *</label>
                                 <div class="input-group">
                                     <span class="input-group-btn">
                                         <span id="brown" class="btn btn-default btn-file">
-                                            Duyệt... <input type="file" name="avatar" id="imgInp">
+                                            Duyệt... <input type="file" name="img" id="imgInp">
                                         </span>
                                     </span>
                                     <input type="text" class="form-control" readonly>

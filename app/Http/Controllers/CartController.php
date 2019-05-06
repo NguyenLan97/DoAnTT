@@ -108,5 +108,4 @@ class CartController extends Controller
     public function getComplete(){
     	return view('frontend.complete');
     }
-
 }

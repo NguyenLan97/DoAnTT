@@ -24,31 +24,35 @@
                                 <thead>
                                     <tr>
                                         <th style="text-align: center;">ID</th>
-                                        <th style="text-align: center;">Tài khoản</th>
+                                        <th style="text-align: center;">Email</th>
                                         <th style="text-align: center;">Họ tên</th>
                                         <th style="text-align: center;">Địa chỉ</th>
-                                        <th style="text-align: center;">Giới tính</th>
-                                        <th style="text-align: center;">Email</th>
+                                        <th style="text-align: center;">Điện thoại</th>
+                                        <th style="text-align: center;">Ngày tạo</th>
+                                        <th style="text-align: center;">Quản trị</th>
                                         <th style="text-align: center;"></th>
                                         <th style="text-align: center;"></th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
+                                	@foreach($userlist as $user)
                                 	<tr>
-                                		<td></td>
-                                		<td></td>
-                                		<td></td>
-                                		<td></td>
-                                		<td></td>
-                                		<td></td>
+                                		<td style="text-align: center;">{{$user->id}}</td>
+                                		<td style="text-align: center;">{{$user->email}}</td>
+                                		<td style="text-align: center;">{{$user->full_name}}</td>
+                                		<td style="text-align: center;">{{$user->address}}</td>
+                                		<td style="text-align: center;">{{$user->phone}}</td>
+                                		<td style="text-align: center;">{{$user->created_at}}</td>
+                                		<td style="text-align: center;">@if($user->is_admin == 1) Có @else Không @endif</td>
                                 		<td style="text-align: center;">
                                             <a href="{{asset('admin/user/edit/')}}" class="btn btn-info"><i class="fa fa-edit"></i></a>
                                         </td> 
                                         <td style="text-align: center;">
-                                        	<a href="{{asset('admin/user/delete/')}}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" class="btn btn-info" style="background: #f0ad4e; border-color: #f0ad4e;"><i class="fa fa-trash-o"></i></a>
+                                        	<a href="{{asset('admin/user/delete/'.$user->id)}}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" class="btn btn-info" style="background: #f0ad4e; border-color: #f0ad4e;"><i class="fa fa-trash-o"></i></a>
                                         </td> 
                                 	</tr>
+                                	@endforeach
                                 </tbody>
                             </table>
                             <!-- /.table-responsive -->

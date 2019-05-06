@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EditCateRequest extends FormRequest
+class AddNewsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,14 +25,7 @@ class EditCateRequest extends FormRequest
     {
         return [
             //
-            'cate_name'=>'unique:category,cate_name,'.$this->segment(4).',cate_id'
-        ];
-    }
-    public function messages(){
-    	return [
-            //
-        	'cate_name.unique'=>'Tên danh mục đã bị trùng'
-
+            'img'=>'image'
         ];
     }
 }

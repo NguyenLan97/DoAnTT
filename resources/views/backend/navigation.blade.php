@@ -64,6 +64,10 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
+                            <a href="{{asset('admin/contact')}}"><i class="fa fa-file fa-fw"></i> Quản lý liên hệ</a>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
                             <a href="#"><i class="fa fa-user fa-fw"></i> Quản lý Thành viên<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>

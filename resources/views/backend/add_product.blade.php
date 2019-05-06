@@ -85,7 +85,7 @@
                             <div class="form-group col-sm-4">
                                 <label>Ảnh sản phẩm*</label>
                                 <div>
-                                    <input required type="file" name="img" id="imgInp">
+                                    <input type="file" name="img" id="imgInp">
                                     <div class="show-image file"></div>
                                 </div>
                                 <img id='img-upload'/>

@@ -1,11 +1,11 @@
 @extends('backend.master')
-@section('title','Tin tức')
+@section('title','Danh sách tin tức')
 @section('content')
 
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-11">
-                    <h2>TIN TỨC</h2>
+                    <h2>DANH SÁCH TIN TỨC</h2>
                 </div>
                 <div class="col-sm-1" style="padding-left: 3.4%">
                         <h2><a  href="{{asset('admin/news/add')}}" class="btn btn-success"><i class="fa fa-plus"></i></a></h2>
@@ -31,18 +31,22 @@
                                 </thead>
 
                                 <tbody>
+                                	@foreach($newslist as $news)
                                 	<tr>
-                                		<td></td>
-                                		<td></td>
-                                		<td></td>
-                                		<td></td>
+                                		<td style="text-align: center;">{{$news->news_id}}</td>
+                                		<td style="text-align: center;">{{$news->news_title}}</td>
+                                		<td style="text-align: center;">{{$news->news_content}}</td>
                                 		<td style="text-align: center;">
-                                            <a href="{{asset('admin/news/edit/')}}" class="btn btn-info"><i class="fa fa-edit"></i></a>
+                                			<img height="120px" src="{{asset('public/images/'.$news->news_image)}}" class="thumbnail">
+                                		</td>
+                                		<td style="text-align: center;">
+                                            <a href="{{asset('admin/news/edit/'.$news->news_id)}}" class="btn btn-info"><i class="fa fa-edit"></i></a>
                                         </td> 
                                         <td style="text-align: center;">
-                                        	<a href="{{asset('admin/news/delete/')}}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" class="btn btn-info" style="background: #f0ad4e; border-color: #f0ad4e;"><i class="fa fa-trash-o"></i></a>
+                                        	<a href="{{asset('admin/news/delete/'.$news->news_id)}}" onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" class="btn btn-info" style="background: #f0ad4e; border-color: #f0ad4e;"><i class="fa fa-trash-o"></i></a>
                                         </td> 
                                 	</tr>
+                                	@endforeach
                                 </tbody>
                             </table>
                             <!-- /.table-responsive -->

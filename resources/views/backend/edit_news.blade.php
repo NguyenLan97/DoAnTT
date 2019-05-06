@@ -39,24 +39,24 @@
                                 <label for="#addTitleNews">Tên tiêu đề<span class="star-custom">*</span>
                                 <span id="mess_title" style="color: red"></span>
                                 </label>
-                                <input required type="text" name="cate_name" class="form-control" id="addTitleNews" placeholder="Nhập tên danh mục ...">
+                                <input required type="text" name="news_title" class="form-control" id="addTitleNews" placeholder="Nhập tên tiêu đề ..." value="{{$news->news_title}}">
                             </div>
                             <div class="form-group">
                                 <label for="#addContentNews">Nội dung <span class="star-custom">*</span>
                                 </label>
-                                <textarea class="form-control" id="addContentNews" name="content" placeholder="Nhập nội dung ..."></textarea>
+                                <textarea required class="form-control" id="addContentNews" name="news_content" placeholder="Nhập nội dung ..." value="{{$news->news_content}}"></textarea>
                             </div>
 							<div class="form-group">
                                 <label>Ảnh *</label>
                                 <div class="input-group">
                                     <span class="input-group-btn">
                                         <span id="brown" class="btn btn-default btn-file">
-                                            Duyệt... <input type="file" name="avatar" id="imgInp">
+                                            Duyệt... <input type="file" name="images" id="imgInp">
                                         </span>
                                     </span>
                                     <input type="text" class="form-control" readonly>
                                 </div>
-                                <img id='img-upload'/>
+                                <img id='img-upload' src="{{asset('public/images/'.$news->news_image)}}">
                             </div>
                             <div class="form-group text-center col-sm-12">
                                 <button type="submit" name="submit" id="btnAdd" class="btn btn-success">Sửa</button>

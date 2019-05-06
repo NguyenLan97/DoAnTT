@@ -18,6 +18,7 @@
 			<h3>Tin tức về sản phẩm</h3>
 		</div>
 	</div>
+	@foreach($news as $item)
 	<section class="latest-post-area pb-120">
 			<div class="container no-padding">
 				<div class="row">
@@ -28,15 +29,15 @@
 								<div class="col-lg-5 post-left">
 									<div class="feature-img relative">
 										<div class="overlay overlay-bg"></div>
-										<img class="img-fluid" src="images/ncd2.jpg" alt="">
+										<img class="img-fluid" src="{{asset('images/'.$item->news_image)}}" alt="">
 									</div>
 								</div>
 								<div class="col-lg-7 post-right">
-									<a href="image-post.html">
-										<h4>Nồi cơm điện SUPOR</h4>
+									<a style="color:blue">
+										<h4>{{$item->news_title}}</h4>
 									</a>
 									<p class="excert">
-										Nồi cơm điện bán chạy nhất tháng 2 vừa qua. Với thiết kế đẹp và đơn giản, dễ dàng sử dụng.
+										{{$item->news_content}}
 									</p>
 								</div>
 							</div>
@@ -45,5 +46,6 @@
 				</div>
 			</div>
 		</section>
+		@endforeach
 <!-- //mail -->
 @endsection	

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\News;
+use App\Models\Contact;
 use DB;
 
 class FrontendController extends Controller
@@ -40,10 +42,21 @@ class FrontendController extends Controller
     }
 
     public function getNews(){
-    	return view('frontend.news');
+    	$data['news'] = News::orderBy('news_id','desc')->take(6)->get();
+    	return view('frontend.news',$data);
     }
 
     public function getMail(){
     	return view('frontend.mail');
     } 
+
+    public function postMail(Request $request){
+    	$contact = new Contact;
+    	$contact->contact_name = $request->contact_name;
+    	$contact->contact_email = $request->contact_email;
+    	$contact->contact_subject = $request->contact_subject;
+    	$contact->contact_message = $request->contact_message;
+    	$contact->save();
+    	return back();
+    }
 }

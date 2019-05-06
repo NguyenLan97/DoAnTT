@@ -38,6 +38,8 @@ Route::get('news','FrontendController@getNews');
 
 Route::get('mail','FrontendController@getMail');
 
+Route::post('mail',['as'=>'lienhe','uses'=>'FrontendController@postMail']);
+
 Route::get('complete','CartController@getComplete');
 
 Route::get('member', 'MemberController@member');
@@ -100,24 +102,41 @@ Route::group(['namespace'=>'Admin'],function(){
 			Route::get('/','NewsController@getNews');
 
 			Route::get('add','NewsController@getAddNews');
+			Route::post('add','NewsController@postAddNews');
 
-			Route::get('edit','NewsController@getEditNews');
+			Route::get('edit/{id}','NewsController@getEditNews');
+			Route::post('edit/{id}','NewsController@postEditNews');
+
+			Route::get('delete/{id}','NewsController@getDeleteNews');
 		});
 
 		Route::group(['prefix'=>'user'],function(){
 			Route::get('/','UserController@getUser');
 
 			Route::get('add','UserController@getAddUser');
+			Route::post('add','UserController@postAddUser');
 
 			Route::get('edit','UserController@getEditUser');
+
+			Route::get('delete/{id}','UserController@getDeleteUser');
 		});
 
 		Route::group(['prefix'=>'bill'],function(){
 
 			Route::get('/','BillController@getBill');
-			
+			Route::get('delete/{id}','BillController@getDeleteBill');
+			Route::get('status/{id}','BillController@getStatus');
+		});
+
+		Route::group(['prefix'=>'contact'],function(){
+
+			Route::get('/','ContactController@getContact');
+			Route::get('delete/{id}','ContactController@getDeleteContact');
 
 		});
+
+		Route::get('generate-docx','WordController@generateDocx');
+		
 	});
 
 });

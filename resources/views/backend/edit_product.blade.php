@@ -85,7 +85,7 @@
                             <div class="form-group col-sm-4">
                                 <label>Ảnh sản phẩm*</label>
                                 <div>
-                                    <input required type="file" name="img" id="imgInp">
+                                    <input type="file" name="images" id="imgInp">
                                 </div>
                                 <img id='img-upload' width="300px" src="{{asset('images/'.$product->prod_img)}}">
                             </div>
@@ -122,7 +122,6 @@
 											filebrowserFlashUploadUrl: '../editor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
 										});
 									</script>
-
                             </div>
                             <div class="form-group text-center col-sm-12">
                                 <button type="submit" name="add" id="btnAdd" class="btn btn-success">Sửa</button>

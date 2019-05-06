@@ -18,13 +18,15 @@
 			<h3>Liên hệ với chúng tôi</h3>
 			<div class="mail-grids">
 				<div class="col-md-8 mail-grid-left animated wow slideInLeft" data-wow-delay=".5s">
-					<form>
-						<input type="text" value="Tên" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-						<input type="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-						<input type="text" value="Chủ đề" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}" required="">
-						<textarea type="text"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Tin nhắn ...</textarea>
+					<form method="post" action="">
+						<input type="text" name="contact_name" value="" placeholder="Nhập tên...">
+						<input type="email" name="contact_email" value="" placeholder="Nhập email...">
+						<input type="text" name="contact_subject" value="" placeholder="Nhập chủ đề...">
+						<textarea type="text" name="contact_message" placeholder="Nhập tin nhắn..." ></textarea>
 						<input type="submit" value="Gửi" >
+						{{csrf_field()}}
 					</form>
+					
 				</div>
 				<div class="col-md-4 mail-grid-right animated wow slideInRight" data-wow-delay=".5s">
 					<div class="mail-grid-right1">
